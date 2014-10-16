@@ -1,0 +1,7 @@
+
+
+
+
+DEV_DATA_DEF(WIFI_ACCESS_DEVICE, 0x35, "Wifi Access Device")
+DEV_DATA_DEF(ROUTER,             0x41, "Router")
+DEV_DATA_DEF(NAS,                0x11, "NAS")
