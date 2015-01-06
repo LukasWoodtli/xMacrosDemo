@@ -1,0 +1,71 @@
+There is a widely unknown pattern with C/C++ macros that helps to organize data in your code.
+
+ 
+
+Imagine you have different fonts in your code:
+
+Arial 13
+Arial 16
+Arial Italic
+Times Roman 13
+Times Roman 16
+... 
+So in your code it looks like:
+
+font.c
+
+static font_t const * const font_a[] = {
+
+  arial_13_p,
+
+  arial_16_p,
+
+ arial_italic_p,
+
+  // ...
+
+  }
+
+  // ...
+
+  // now we want do do something with a font
+
+font_t * const arial_16_font = font_a[1]; // I think arial 16 is the second font...
+
+
+
+As you see it’s tedious to remember the order of the fonts in the array. So what’s the thing to do? Add an enum of course...
+
+typedef enum {
+
+FONT_ARIAL_13,
+
+FONT_ARIAL_16,
+
+// ...
+
+} font_id_t;
+
+
+
+
+
+It’s kind of a static dictionary. But it depends on the use case.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ressources:
+
+http://en.wikipedia.org/wiki/X_Macro
+
+http://en.wikibooks.org/wiki/C_Programming/Preprocessor#X-Macros
+
+http://www.drdobbs.com/the-new-c-x-macros/184401387
